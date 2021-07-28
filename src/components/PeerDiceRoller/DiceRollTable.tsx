@@ -19,20 +19,17 @@ const ConnectionsTable = (props: {
     >
       <Thead>
         <Tr>
-          <Th>ID</Th>
           <Th>Name</Th>
           <Th>Roll</Th>
         </Tr>
       </Thead>
       <Tbody>
         <Tr>
-          <Td>{myPeer.peerObj.id}</Td>
           <Td>{myPeer.name || "-"}</Td>
           <Td>{myPeer.latestRoll || "-"}</Td>
         </Tr>
         {peers.map((p) => (
           <Tr key={p.connection.peer}>
-            <Td>{p.connection.peer}</Td>
             <Td>{p.name || "-"}</Td>
             <Td>{p.latestRoll || "-"}</Td>
           </Tr>
