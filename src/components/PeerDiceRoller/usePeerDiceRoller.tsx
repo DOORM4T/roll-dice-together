@@ -1,4 +1,5 @@
 import React from "react"
+import AppWrapper from "."
 import {
   handlePeerNameChange,
   useHandleNameChange,
@@ -13,7 +14,6 @@ import {
   PeerActions,
 } from "../PeerContainer/types"
 import { isMyPeerValid } from "../PeerContainer/utils"
-import AppWrapper from "./AppWrapper"
 
 const usePeerDiceRoller = () => {
   const render = (props: IPeerState) => {

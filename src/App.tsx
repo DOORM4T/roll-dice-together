@@ -1,6 +1,6 @@
 import { Box, Heading } from "@chakra-ui/react"
 import React from "react"
-import usePeerDiceRoller from "./components/PeerDiceRollerDemo/usePeerDiceRoller"
+import usePeerDiceRoller from "./components/PeerDiceRoller/usePeerDiceRoller"
 import PeerContainer from "./components/PeerContainer"
 import useConnectionHandlers from "./components/PeerContainer/useConnectionHandlers"
 
