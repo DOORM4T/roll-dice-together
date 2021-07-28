@@ -19,12 +19,18 @@ const AppWrapper = (props: {
   const { handleNameChange, handleDiceRoll, myPeer, peers } = props
   return (
     <Box width={useBreakpointValue({ sm: "sm", md: "md", lg: "lg" })} mt="3rem">
-      <hr />
-      <Heading size="lg" mt="1rem">
-        Demo: Dice Roller
+      <Heading pt="1rem">Roll Dice Together</Heading>
+      <Heading pt="0.4rem" size="sm">
+        Under construction!
       </Heading>
       <HStack mt="1rem">
-        <Input placeholder="Custom name" onChange={handleNameChange} />
+        <Input
+          placeholder="Custom name"
+          onChange={handleNameChange}
+          color="black"
+          borderColor="black"
+          _placeholder={{ color: "black" }}
+        />
         <Button colorScheme="yellow" onClick={handleDiceRoll}>
           Roll
         </Button>
