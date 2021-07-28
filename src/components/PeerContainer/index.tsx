@@ -57,12 +57,7 @@ function PeerContainer({
 
   return (
     <Box>
-      <HStack
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="center"
-        mt="1rem"
-      >
+      <HStack flexDirection="row" alignItems="center" justifyContent="center">
         {myPeer && myPeer.peerObj.id && (
           <CopyMyIDInput myId={myPeer.peerObj.id} />
         )}
