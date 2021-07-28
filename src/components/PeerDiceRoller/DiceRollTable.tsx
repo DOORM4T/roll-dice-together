@@ -1,4 +1,4 @@
-import { Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react"
+import { BoxProps, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react"
 import React from "react"
 import { IMyPeer, IPeerConnection, IPeerData } from "../PeerContainer/types"
 
@@ -25,17 +25,29 @@ const ConnectionsTable = (props: {
       </Thead>
       <Tbody>
         <Tr>
-          <Td>{myPeer.name || "-"}</Td>
-          <Td>{myPeer.latestRoll || "-"}</Td>
+          <FluidTd width="50%">{formatName(myPeer.name)}</FluidTd>
+          <FluidTd width="50%">{myPeer.latestRoll || "-"}</FluidTd>
         </Tr>
         {peers.map((p) => (
           <Tr key={p.connection.peer}>
-            <Td>{p.name || "-"}</Td>
-            <Td>{p.latestRoll || "-"}</Td>
+            <FluidTd width="50%">{formatName(p.name)}</FluidTd>
+            <FluidTd width="50%">{p.latestRoll || "-"}</FluidTd>
           </Tr>
         ))}
       </Tbody>
     </Table>
   )
 }
+
+const FluidTd = (props: BoxProps) => {
+  return <Td whiteSpace="break-spaces" wordBreak="break-all" {...props} />
+}
+
+function formatName(name?: string) {
+  const OVERFLOW_LEN = 50
+  const overflowContent = name && name.length > OVERFLOW_LEN ? "..." : ""
+  const formatted = name ? name.slice(0, OVERFLOW_LEN) + overflowContent : "-"
+  return formatted
+}
+
 export default ConnectionsTable
