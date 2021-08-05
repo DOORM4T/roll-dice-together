@@ -3,15 +3,16 @@ import {
   Button,
   Heading,
   HStack,
-  Input,
   useBreakpointValue,
 } from "@chakra-ui/react"
 import React from "react"
+import InputModal from "../common/InputModal"
+import { HandleNameChange } from "../PeerContainer/actions/changeName"
 import { IMyPeer, IPeerConnection, IPeerData } from "../PeerContainer/types"
 import DiceRollTable from "./DiceRollTable"
 
 const AppWrapper = (props: {
-  handleNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handleNameChange: HandleNameChange
   handleDiceRoll: () => void
   myPeer: IMyPeer & IPeerData
   peers: (IPeerConnection & IPeerData)[]
@@ -24,12 +25,10 @@ const AppWrapper = (props: {
         Under construction!
       </Heading>
       <HStack mt="1rem">
-        <Input
-          placeholder="Custom name"
-          onChange={handleNameChange}
-          color="black"
-          borderColor="black"
-          _placeholder={{ color: "black" }}
+        <InputModal
+          buttonName="Change Name"
+          handleConfirmChange={handleNameChange}
+          defaultValue={myPeer.name}
         />
         <Button colorScheme="yellow" onClick={handleDiceRoll}>
           Roll
