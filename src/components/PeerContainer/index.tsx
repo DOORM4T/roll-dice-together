@@ -9,25 +9,16 @@ import {
   useToast,
 } from "@chakra-ui/react"
 import React from "react"
-import {
-  CustomConnectionHandler,
-  CustomPeerActionHandler,
-  IPeerState,
-} from "./types"
+import { CustomPeerActionHandler, IPeerState } from "./types"
+import useConnectionHandlers from "./useConnectionHandlers"
 import usePeerConnections from "./usePeerConnections"
 
 interface IProps {
   render?: (state: IPeerState) => React.ReactNode
-  onConnectionOpen?: CustomConnectionHandler
-  onConnectionClose?: CustomConnectionHandler
   onPeerAction?: CustomPeerActionHandler
 }
-function PeerContainer({
-  onConnectionOpen,
-  onConnectionClose,
-  onPeerAction,
-  render,
-}: IProps) {
+function PeerContainer({ onPeerAction, render }: IProps) {
+  const { onConnectionOpen, onConnectionClose } = useConnectionHandlers()
   const peerConnections = usePeerConnections({
     onConnectionOpen,
     onConnectionClose,
