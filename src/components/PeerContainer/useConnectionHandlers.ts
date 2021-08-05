@@ -1,6 +1,7 @@
 import { useToast } from "@chakra-ui/react"
 import { CustomConnectionHandler } from "./types"
 
+// Customize onConnectionOpen and onConnectionClose handlers here
 const useConnectionHandlers = () => {
   const toast = useToast({
     duration: 9000,
